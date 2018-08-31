@@ -22,10 +22,10 @@ or just the most general reason
 # Core Idea
 
 Fix the error type of each `Task` and `Result` to a *list of* errors. As
-results are handed down through the call hierarchy / stack of the program. Each
+results are handed down through the call hierarchy / stack of the program, each
 function can annotate the error with context.
 
-``` elm
+```elm
 type ErrorChain errorKind
     = ErrorChain (List errorKind)
 
@@ -58,7 +58,7 @@ General idea is that you use `Job` instead of `Task`, and `Outcome` instead of
 `Result` everywhere, which are wrappers with a fixed error type. A outline of
 using it in the Elm SPA (before the 0.19 refactor) looks as follows:
 
-```
+```elm
 -- Main.elm: add the Error.annotate call
 updatePage : Page -> Msg -> Model -> ( Model, Cmd Msg )
 updatePage page msg model =
@@ -76,7 +76,7 @@ updatePage page msg model =
 Where we just added the `Error.annotate` call. And in each subpage, we just
 add the `Job.annotate` call:
 
-```
+```elm
 module Page.Home exposing (init, ...)
 
 init : Job Model
