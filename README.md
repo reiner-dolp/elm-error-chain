@@ -55,8 +55,8 @@ annotateJob msg =
 # Usage Example
 
 General idea is that you use `Job` instead of `Task`, and `Outcome` instead of
-`Result` everywhere, which are wrappers with a fixed error type. A outline of
-using it in the Elm SPA (before the 0.19 refactor) looks as follows:
+`Result` everywhere. A outline of using it in the Elm SPA before the 0.19
+refactor (sorry!) looks as follows:
 
 ```elm
 -- Main.elm: add the Error.annotate call
